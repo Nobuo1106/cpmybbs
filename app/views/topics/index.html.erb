@@ -1,8 +1,5 @@
-
-
-
 <div class="text-center bg-light font-weight-normal pt-3">
-<%= link_to "Chatty", '#', id: "logo" %>
+  <a href="/topics/index">Chatty</a>
 
   <p>国際結婚についての掲示板です</p>
 </div>
@@ -17,13 +14,12 @@
 </ul>
 
 <div class="bg-success text-light">
-<h4>トピック新規登録</h4>
-<%= form_for @newTopic, :url => {:action => 'create'} do |f| %>
+  <h5>トピック新規登録</h5>
+  <%= form_for @newTopic, :url => {:action => 'create'} do |f| %>
   <%= f.text_field :title %>
   <%= f.submit %>
 <% end %>
 </div>
 
- <%= render 'layouts/shim' %>
-
+<%= render 'layouts/shim' %>
 <%= render 'layouts/footer' %>
