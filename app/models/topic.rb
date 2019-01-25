@@ -1,4 +1,5 @@
 class Topic < ApplicationRecord
-  has_many :posts, :dependent => :destroy
+  # 少し略して書ける
+  has_many :posts, dependent: :destroy
   validates :title, presence: true
 end
