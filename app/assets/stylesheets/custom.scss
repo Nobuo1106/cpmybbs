@@ -4,10 +4,38 @@
 
 
 /*universal*/
+$max-width: 1080px !default;
+$font-famiry-sans-serif: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif !default;
+$font-famiry-serif: "Hiragino Mincho ProN", "游明朝", "YuMincho", "HG明朝E", Meiryo, serif !default;
 
-body {
-  padding: 5px;
-  margin:10px;
+@media all and(min-width: 670px){
+    .top-body
+    { display: block; }
+  }
+@media all and(max-width: 1024px){
+.top-body
+    { display: block; }
+}
+
+.top-body{
+    padding: 5px;
+    margin:10px;
+    background-image: url("/top.jpg");
+    height:800px;
+    background-size:cover;
+    position: relative;
+  }
+
+.enter{
+  position: absolute;
+  top:700px;
+  left: 600px;
+}
+
+.exit{
+  position: absolute;
+  top: 700px;
+  left: 800px;
 }
 
 section {

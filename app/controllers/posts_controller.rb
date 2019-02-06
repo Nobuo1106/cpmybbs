@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_topic, only: %i[new create]
 
   def new
     @post = Post.new
@@ -10,10 +11,11 @@ class PostsController < ApplicationController
       redirect_to new_topic_post_path(@topic)
     else
       render :new
+       flash[:notice] = "投稿内容が空欄です"
   end
 end
 
-  private
+ private
 
   def set_topic
     @topic = Topic.find(params[:topic_id])

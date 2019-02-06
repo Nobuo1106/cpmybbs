@@ -1,3 +1,8 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
+
 <div class="text-center bg-light font-weight-normal pt-3">
   <a href= /topics>Chatty</a>
 
@@ -14,10 +19,12 @@
 </ul>
 
 <div class="bg-success text-light">
-  <h5>トピック新規登録</h5>
+  <h5>スレッド新規作成</h5>
   <%= form_for @topic do |f| %>
-    <%= f.text_field :title %>
-    <%= f.submit %>
+    <div class="form-inline">
+      <%= f.text_field :title %>
+      <%= f.submit %>
+    </div>
   <% end %>
 </div>
 

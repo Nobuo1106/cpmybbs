@@ -10,7 +10,8 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to topics_path
     else
-      render :index
+     flash.now[:notice] = "スレッド名がありません"
+     render :index
     end
   end
 
@@ -20,12 +21,11 @@ class TopicsController < ApplicationController
   end
 
   private
+    def topic_params
+      params.require(:topic).permit(:title)
+    end
 
-  def topic_params
-    params.require(:topic).permit(:title)
+    def set_topic
+      @topic = Topic.find(params[:id])
+    end
   end
-
-  def set_topic
-    @topic = Topic.find(params[:id])
-  end
-end

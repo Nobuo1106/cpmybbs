@@ -1,14 +1,16 @@
-<div class="title">
-  <h2 class="text-center">
-    Chatty
-  </h2>
-</div>
-<div class="my-20">
-  <p>let's talk about international marriage</p>
-  <p>国際結婚についての掲示板<p>
-      <div>
-        <%= link_to "Enter", topics_path %>
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="sample.css" type="text/css">
+    <body>
+      <div class="top-body">
+        <div class="enter my-20">
+              <%= link_to image_tag('/enter.jpg'), topics_path %>
+        </div>
+            <div class="exit">
+              <%= link_to image_tag('/exit.jpg'), :back %>
+        </div>
       </div>
-      <div>
-        <a href="https://www.google.com/">Exit<a>
-      </div>
+    </body>
+  </head>
+</html>

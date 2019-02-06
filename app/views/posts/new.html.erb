@@ -1,37 +1,35 @@
+<% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+<% end %>
+
 <div class="text-center bg-light font-weight-normal pt-3">
-  <a href=/topics>Chatty</a>
+    <a href=/topics>Chatty</a>
 </div>
-<div class="text-center pb-20 mt-10">
-  <h3><%= @topic.title %></h3>
-</div>
-<div class="mt-10 pd-20">
-  <% @topic.posts.order(:id).each_with_index(1) do |post , idx| %>
-    <p>
-      <%= idx %>
-      <%= post.name %>
-      <%= post.body %>
-    </p>
-  <% end %>
-</div>
-<div class="newpost my-auto mb-60">
-  <h4>新規書き込み</h4>
-  <%= form_for @post, url: topic_posts_path do |f| %>
-    <div class="post_area">
-      <p><%= f.text_field :name %></p>
-      <p><%= f.label :name %></p>
-      <p><%= f.text_field :name %></p>
-      <p><%= f.label :body %></p>
-      <p><%= f.text_area :body %></p>
-      <%= f.submit %>
-    </div>
-  <% end %>
-</div>
-
-</div>
-
+  <div class="text-center pb-20 mt-10">
+  </div>
+  <div class="mt-10 pd-20">
+    <% @topic.posts.order(:id).each.with_index(1) do |post , idx| %>
+      <p>
+        <%= idx %>
+        <%= post.name %>
+        <%= post.body %>
+      </p>
+    <% end %>
+  </div>
+  <div class="newpost my-auto mb-60">
+    <h4>新規書き込み</h4>
+    <%= form_for @post, url: topic_posts_path(@topic) do |f| %>
+      <div class="post_area">
+        <p><%= f.label :name %></p>
+        <p><%= f.text_field :name %></p>
+        <p><%= f.label :body %></p>
+        <p><%= f.text_area :body %></p>
+        <%= f.submit "送信", class: "btn btn-primary btn-md" %>
+      </div>
+    <% end %>
+  </div>
 <div class="back-btn back-btn-primary">
-  <button onclick="history.back()">戻る</button>
-  <% link_to "戻る", :back %>
+  <a href="/topics" class="btn btn-info btn-md">戻る</a>
   </div>
 
   <%= render 'layouts/shim' %>
